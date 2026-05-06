@@ -90,6 +90,30 @@ POST http://localhost:8080/api/pedidos
 ---
 
 ## Flujo de trabajo Git
+### Crear una nueva rama
+
+```bash
+git checkout -b feature/nueva-funcionalidad
+```
+
+### Guardar cambios
+
+```bash
+git add .
+git commit -m "Descripción del cambio"
+```
+
+### Subir cambios
+
+```bash
+git push origin feature/nueva-funcionalidad
+```
+
+### Crear Pull Request
+
+Se realiza desde GitHub para revisión e integración.
+
+---
 
 ## Evidencias
 ### Capturas del sistema
