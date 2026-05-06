@@ -90,30 +90,126 @@ POST http://localhost:8080/api/pedidos
 ---
 
 ## Flujo de trabajo Git
-### Crear una nueva rama
+Para el desarrollo del proyecto se siguió una estrategia basada en **Git Flow**, utilizando diferentes ramas para organizar el trabajo colaborativo.
+
+### Rama `develop`
+
+La rama `develop` fue utilizada como rama principal de integración durante el desarrollo.
+
+En esta rama se consolidaron todas las funcionalidades desarrolladas en ramas feature antes de pasar a producción.
+
+Ejemplo:
+
+```bash
+git checkout develop
+git merge feature/autenticacion
+git merge feature/carrito-compras
+```
+
+---
+
+### Ramas `feature/`
+
+Cada nueva funcionalidad fue desarrollada en una rama independiente.
+
+Ejemplos de ramas utilizadas:
+
+- `feature/login`
+- `feature/catalogo-orquideas`
+- `feature/carrito-compras`
+- `feature/integracion-whatsapp`
+
+Creación de una rama feature:
 
 ```bash
 git checkout -b feature/nueva-funcionalidad
 ```
 
-### Guardar cambios
+Una vez terminada:
 
 ```bash
-git add .
-git commit -m "Descripción del cambio"
+git checkout develop
+git merge feature/nueva-funcionalidad
 ```
-
-### Subir cambios
-
-```bash
-git push origin feature/nueva-funcionalidad
-```
-
-### Crear Pull Request
-
-Se realiza desde GitHub para revisión e integración.
 
 ---
+
+### Rama `release/v1.0.0`
+
+Cuando el sistema alcanzó una versión estable, se creó la rama:
+
+```bash
+release/v1.0.0
+```
+
+Esta rama se utilizó para:
+
+- Realizar pruebas finales
+- Corregir errores menores
+- Ajustar documentación
+- Preparar la versión final
+
+Creación:
+
+```bash
+git checkout -b release/v1.0.0
+```
+
+Posteriormente se integró a `main`.
+
+---
+
+### Rama `hotfix/readme-typo`
+
+Después de liberar la versión final, se detectó un error menor en la documentación del README.
+
+Para solucionarlo se creó:
+
+```bash
+hotfix/readme-typo
+```
+
+Esta rama permitió corregir rápidamente el error sin afectar el desarrollo principal.
+
+Ejemplo:
+
+```bash
+git checkout -b hotfix/readme-typo
+git commit -m "Corrección de error tipográfico en README"
+```
+
+---
+
+### Tag final `v1.0.0`
+
+La versión final del proyecto fue marcada con el tag:
+
+```bash
+v1.0.0
+```
+
+Creación del tag:
+
+```bash
+git tag -a v1.0.0 -m "Versión estable final"
+git push origin v1.0.0
+```
+
+Este tag representa la primera versión estable y funcional del sistema.
+
+---
+
+### Flujo general utilizado
+
+```text
+main
+ └── develop
+      ├── feature/login
+      ├── feature/catalogo
+      ├── feature/carrito
+      ├── release/v1.0.0
+      └── hotfix/readme-typo
+```
 
 ## Evidencias
 ### Capturas del sistema
