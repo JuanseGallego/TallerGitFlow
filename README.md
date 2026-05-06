@@ -92,3 +92,9 @@ POST http://localhost:8080/api/pedidos
 ## Flujo de trabajo Git
 
 ## Evidencias
+### Capturas del sistema
+
+- Pantalla de inicio
+- Catálogo de productos
+- Carrito de compras
+- Confirmación de pedido
