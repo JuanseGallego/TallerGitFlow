@@ -84,7 +84,7 @@ POST http://localhost:8080/api/pedidos
 
 ## Autores
 
-- Juan Sebastian Gallego Villamil
+- Juan Sebastián Gallego Villamil
 - Steven
 
 ---
